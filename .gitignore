@@ -44,3 +44,5 @@ package
 Debug
 obj/Debug
 bin
+SISVAAI_WEB/SISVAAI_UI/src/assets
+SISVAAI_WEB/SISVAAI_UI/config
