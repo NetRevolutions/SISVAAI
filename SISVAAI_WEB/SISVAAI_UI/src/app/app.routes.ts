@@ -8,8 +8,8 @@ export const ROUTES: Routes = [{
     path: 'app',   loadChildren: () => System.import('./layout/layout.module')
   }, {
     path: 'login', loadChildren: () => System.import('./login/login.module')
-  },{
-    path: 'simulator', loadChildren: () => System.import('./sisvaai/simulator/simulator.module')
+  }, {
+    path: 'tool', loadChildren: () => System.import('./sisvaai/tool/tool.module')
   }, {
     path: 'error', component: ErrorComponent
   }, {
