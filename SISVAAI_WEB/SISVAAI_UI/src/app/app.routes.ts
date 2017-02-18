@@ -9,7 +9,9 @@ export const ROUTES: Routes = [{
   }, {
     path: 'login', loadChildren: () => System.import('./login/login.module')
   }, {
-    path: 'tool', loadChildren: () => System.import('./sisvaai/tool/tool.module')
+    path: 'simulator', loadChildren: () => System.import('./sisvaai/simulator/simulator.module')
+  }, {
+    path: 'simulator/:userName', loadChildren: () => System.import('./sisvaai/simulator/simulator.module')
   }, {
     path: 'error', component: ErrorComponent
   }, {
