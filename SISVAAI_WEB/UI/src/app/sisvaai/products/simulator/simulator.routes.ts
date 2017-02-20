@@ -3,7 +3,7 @@ import { SimulatorComponent } from './simulator.component';
 
 const routes: Routes = [
   { path: '', component: SimulatorComponent, pathMatch: 'full' },  
-  { path: ':userName', component: SimulatorComponent },
+  //{ path: ':userName', component: SimulatorComponent },
 ];
 
 export const ROUTES = RouterModule.forChild(routes);
