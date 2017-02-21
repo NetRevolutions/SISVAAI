@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'selector',
-    templateUrl: 'feature.component.html'
+    selector: 'ads-ultra',
+    templateUrl: './ultra.template.html'
 })
-export class FeatureComponent implements OnInit {
+export class UltraComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

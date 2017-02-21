@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'selector',
-    templateUrl: 'feature.component.html'
+    selector: 'ads-advanced',
+    templateUrl: './advanced.template.html'
 })
-export class FeatureComponent implements OnInit {
+export class AdvancedComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

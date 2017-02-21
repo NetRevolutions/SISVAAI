@@ -6,5 +6,29 @@
         fugiat voluptas! Sint, veritatis, perferendis!
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore maiores aut non mollitia error 
         fugiat facilis facere quisquam, odit dicta cum soluta eveniet, cupiditate veritatis reiciendis 
-        repellendus temporibus autem reprehenderit.</p>
+        repellendus temporibus autem reprehenderit.</p>    
+    <section class="widget">
+        <div class="widget-body">
+            <div class="mb-sm">
+                <label>Tipos de Anuncios: &nbsp;</label>
+                <div class="btn-group" dropdown>
+                    <button id="dropdown-btn-two" class="btn btn-gray btn-sm" dropdownToggle>
+                    &nbsp;-- Seleccione -- &nbsp;
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                    <ul dropdownMenu role="menu" aria-labelledby="dropdown-btn-two">
+                        <li role="menuitem"><a [routerLink] = "['./ads-pro']" class="dropdown-item" >Pro Ad Pack</a></li>
+                        <li role="menuitem"><a [routerLink] = "['./ads-ultra']" class="dropdown-item" >Ultra Yellow Ad Pack </a></li>
+                        <li role="menuitem"><a [routerLink] = "['./ads-super']" class="dropdown-item" >Super Yellow Ad Pack</a></li>                        
+                        <li role="menuitem"><a [routerLink] = "['./ads-advanced']" class="dropdown-item" >Advanced</a></li>                        
+                        <li role="menuitem"><a [routerLink] = "['./ads-standard']" class="dropdown-item" >Standard</a></li>                        
+                        <li role="menuitem"><a [routerLink] = "['./ads-starter']" class="dropdown-item" >Starter</a></li>                        
+                    </ul>
+                </div>
+                <div class="row">
+                    <router-outlet></router-outlet>
+                </div>                  
+            </div>                          
+        </div>
+    </section>       
 </div>
