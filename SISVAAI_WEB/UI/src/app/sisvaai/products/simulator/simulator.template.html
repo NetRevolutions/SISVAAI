@@ -10,24 +10,37 @@
     <section class="widget">
         <div class="widget-body">
             <div class="mb-sm">
-                <label>Tipos de Anuncios: &nbsp;</label>
-                <div class="btn-group" dropdown>
-                    <button id="dropdown-btn-two" class="btn btn-gray btn-sm" dropdownToggle>
-                    &nbsp;-- Seleccione -- &nbsp;
-                    <i class="fa fa-caret-down"></i>
-                    </button>
-                    <ul dropdownMenu role="menu" aria-labelledby="dropdown-btn-two">
-                        <li role="menuitem"><a [routerLink] = "['./ads-pro']" class="dropdown-item" >Pro Ad Pack</a></li>
-                        <li role="menuitem"><a [routerLink] = "['./ads-ultra']" class="dropdown-item" >Ultra Yellow Ad Pack </a></li>
-                        <li role="menuitem"><a [routerLink] = "['./ads-super']" class="dropdown-item" >Super Yellow Ad Pack</a></li>                        
-                        <li role="menuitem"><a [routerLink] = "['./ads-advanced']" class="dropdown-item" >Advanced</a></li>                        
-                        <li role="menuitem"><a [routerLink] = "['./ads-standard']" class="dropdown-item" >Standard</a></li>                        
-                        <li role="menuitem"><a [routerLink] = "['./ads-starter']" class="dropdown-item" >Starter</a></li>                        
-                    </ul>
-                </div>
-                <div class="row">
-                    <router-outlet></router-outlet>
-                </div>                  
+                <label>Tipos de Anuncios: &nbsp;</label>                
+                <select class="selectpicker" id="ddlADS" data-style="btn-secondary" data-width="auto">
+                    <option value="0">&nbsp;-- Seleccione -- &nbsp;</option>
+                    <option value="1">Pro Ad Pack</option>
+                    <option value="2">Ultra Yellow Ad Pack</option>
+                    <option value="3">Super Yellow Ad Pack</option>
+                    <option value="4">Advanced</option>
+                    <option value="5">Standard</option>
+                    <option value="6">Starter</option>
+                </select>                   
+            </div>
+            <div *ngIf="_showDefault" class="row">
+                    <p>Construya su anuncio aqui</p>
+            </div>
+            <div *ngIf="_showProAdPack" class="row">
+                <ads-pro></ads-pro>
+            </div>
+            <div *ngIf="_showUltraYellowAdPack" class="row">
+                <ads-ultra></ads-ultra>
+            </div>
+            <div *ngIf="_showSuperYellowAdPack" class="row">
+                <ads-super></ads-super>
+            </div>
+            <div *ngIf="_showAdvance" class="row">
+                <ads-advanced></ads-advanced>
+            </div> 
+            <div *ngIf="_showStandard" class="row">
+                <ads-standard></ads-standard>
+            </div>
+            <div *ngIf="_showStarter" class="row">
+                <ads-starter></ads-starter>
             </div>                          
         </div>
     </section>       

@@ -23,6 +23,7 @@ import { UltraComponent } from './ads/ultra/ultra.component';
 @NgModule({
   declarations: [
     SimulatorComponent,
+    
     AdvancedComponent,
     ProComponent,
     StandardComponent,
