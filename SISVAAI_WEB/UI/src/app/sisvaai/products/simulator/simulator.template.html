@@ -12,14 +12,8 @@
             <div class="mb-sm">
                 <label>Tipos de Anuncios: &nbsp;</label>                
                 <select class="selectpicker" id="ddlADS" data-style="btn-secondary" data-width="auto">
-                    <option value="0">&nbsp;-- Seleccione -- &nbsp;</option>
-                    <option value="1">Pro Ad Pack</option>
-                    <option value="2">Ultra Yellow Ad Pack</option>
-                    <option value="3">Super Yellow Ad Pack</option>
-                    <option value="4">Advanced</option>
-                    <option value="5">Standard</option>
-                    <option value="6">Starter</option>
-                </select>                   
+                    <option *ngFor="let ads of _lstAds" [value]="ads.id">{{ads.name}}</option>
+                </select>              
             </div>
             <div *ngIf="_showDefault" class="row">
                     <p>Construya su anuncio aqui</p>

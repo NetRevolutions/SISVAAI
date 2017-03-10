@@ -7,7 +7,8 @@ import { AIClientsComponent } from './ai-clients/ai-clients.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent, pathMatch: 'full' },  
-  { path: ':userName', component: ProductsComponent, children:[    
+  { path: ':userName', component: ProductsComponent, children:[
+    //{ path: '', component: NewClientsComponent, pathMatch: 'full'},    
     { path: 'new-clients', component: NewClientsComponent },
     { path: 'ai-clients', component: AIClientsComponent },
     { path: 'simulator', loadChildren: () => System.import('./simulator/simulator.module')},
