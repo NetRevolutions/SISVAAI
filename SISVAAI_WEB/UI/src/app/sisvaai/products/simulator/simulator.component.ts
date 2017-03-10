@@ -40,8 +40,6 @@ export class SimulatorComponent {
     //this.clearAdsOptions();
   }
 
-  
-
   public clearAdsOptions(){
     this._showDefault = true;
     this._showProAdPack = false;
