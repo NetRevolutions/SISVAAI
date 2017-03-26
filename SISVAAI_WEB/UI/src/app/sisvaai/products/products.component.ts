@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
+import { TabsetComponent } from 'ng2-bootstrap'
 
 import { AppState } from '../../app.service';
 
@@ -14,15 +15,17 @@ import { AppState } from '../../app.service';
     }
 })
 export class ProductsComponent {
+    @ViewChild('productsTabs') productsTabs : TabsetComponent;
+
     showTabs: boolean = false;
     _path: string = '';
     constructor(
         public appState: AppState
     , private route: ActivatedRoute
     ) { }
+    
 
-    ngOnInit() { 
-
+    ngOnInit() {        
         console.log('Initial Simualtor State', this.appState.state);
     
         let userName = this.route.snapshot.params['userName'];
@@ -40,4 +43,12 @@ export class ProductsComponent {
         }            
         
     }
+
+    selectTab(tab_id: number) {
+      this.productsTabs.tabs[tab_id].active = true;
+    }
+
+    disableEnable(tab_id: number) {
+    this.productsTabs.tabs[tab_id].disabled = ! this.productsTabs.tabs[tab_id].disabled
+  }
 }

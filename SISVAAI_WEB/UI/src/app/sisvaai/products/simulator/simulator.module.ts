@@ -7,8 +7,6 @@ import { ButtonsModule, DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { TabsModule, AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ModalModule } from 'ng2-modal';
 
-import { ROUTES } from './simulator.routes';
-
 import { SimulatorComponent } from './simulator.component';
 
 //Ads
@@ -34,7 +32,7 @@ import { UltraComponent } from './ads/ultra/ultra.component';
   imports: [
     CommonModule,
     FormsModule,
-    ROUTES,
+    
     AlertModule,
     //WidgetModule,
     TooltipModule,
@@ -46,5 +44,5 @@ import { UltraComponent } from './ads/ultra/ultra.component';
   ]
 })
 export default class SimulatorModule {
-    static ROUTES = ROUTES;
+    
 }

@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'simulator',
+  selector: 'simulator-ads',
   styleUrls: [ './simulator.style.scss'
               //, '../../../../../node_modules/bootstrap/dist/css/bootstrap.css'
               ],
