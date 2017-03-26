@@ -23,8 +23,7 @@ export class SimulatorComponent {
   _lstAds: Array<any>;
 
 
-  constructor(
-    ) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -37,7 +36,7 @@ export class SimulatorComponent {
     this._lstAds.push({id: 'ads-Advanced', name: 'Advanced'});
     this._lstAds.push({id: 'ads-Standard', name: 'Standard'});
     this._lstAds.push({id: 'ads-Starter', name: 'Starter'});
-    //this.clearAdsOptions();
+    this.clearAdsOptions();
   }
 
   public clearAdsOptions(){
@@ -48,5 +47,36 @@ export class SimulatorComponent {
     this._showAdvance = false;
     this._showStandard = false;
     this._showStarter = false; 
+  }
+
+  public selectValue(value: any){
+    //console.log(value);
+    this.clearAdsOptions();    
+    switch (value) {
+      case 'default':
+        this._showDefault = true;
+        break;
+    case 'ads-Pro':
+      this._showProAdPack = true;;
+      break;
+    case 'ads-Ultra':
+      this._showUltraYellowAdPack = true;;
+      break;
+    case 'ads-Super':
+      this._showSuperYellowAdPack = true;;
+      break;
+    case 'ads-Advanced':
+      this._showAdvance = true;;
+      break;
+    case 'ads-Standard':
+      this._showStandard = true;;
+      break;
+    case 'ads-Starter':
+      this._showStarter = true;;
+      break;
+    default:
+      this._showDefault = true;;
+      break;
+    }
   }
 }
