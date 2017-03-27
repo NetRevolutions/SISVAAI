@@ -1,5 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+declare var jQuery: any;
+interface Ads {
+  id:string
+  , name: string
+};
 
 @Component({
   selector: 'simulator-ads',
@@ -20,27 +26,33 @@ export class SimulatorComponent {
   _showAdvance: boolean = false;
   _showStandard: boolean = false;
   _showStarter: boolean = false; 
-  _lstAds: Array<any>;
+  selectedItem: Ads;
+  el: ElementRef;
 
+  _lstAds: Ads[] = [
+    {id: 'default', name: '-- Seleccione --'}
+    , {id: 'ads-Pro', name: 'Pro Ad Pack'}
+    , {id: 'ads-Ultra', name: 'Ultra Yellow Ad Pack'}
+    , {id: 'ads-Super', name: 'Super Yellow Ad Pack'}
+    , {id: 'ads-Advanced', name: 'Advanced'}
+    , {id: 'ads-Standard', name: 'Standard'}
+    , {id: 'ads-Starter', name: 'Starter'}
+  ];
 
-  constructor() {
+  constructor(
+    el:ElementRef
+  ) {
+    this.el = el;
   }
 
   ngOnInit() {
     //TODO: Call of Service  
-    this._lstAds = new Array<any>();
-    this._lstAds.push({id: 'default', name: '-- Seleccione --'});
-    this._lstAds.push({id: 'ads-Pro', name: 'Pro Ad Pack'});
-    this._lstAds.push({id: 'ads-Ultra', name: 'Ultra Yellow Ad Pack'});
-    this._lstAds.push({id: 'ads-Super', name: 'Super Yellow Ad Pack'});
-    this._lstAds.push({id: 'ads-Advanced', name: 'Advanced'});
-    this._lstAds.push({id: 'ads-Standard', name: 'Standard'});
-    this._lstAds.push({id: 'ads-Starter', name: 'Starter'});
     this.clearAdsOptions();
+    this.changeAds('default');
   }
 
   public clearAdsOptions(){
-    this._showDefault = true;
+    this._showDefault = false;
     this._showProAdPack = false;
     this._showUltraYellowAdPack = false;
     this._showSuperYellowAdPack = false;
@@ -49,10 +61,15 @@ export class SimulatorComponent {
     this._showStarter = false; 
   }
 
-  public selectValue(value: any){
-    //console.log(value);
+  public updateSelectedValue(event:string): void {
+    debugger;
+    this.selectedItem = JSON.parse(event); 
+    this.changeAds(this.selectedItem.id);
+  }
+
+  public changeAds(id: string): void {
     this.clearAdsOptions();    
-    switch (value) {
+    switch (id) {
       case 'default':
         this._showDefault = true;
         break;
@@ -78,5 +95,24 @@ export class SimulatorComponent {
       this._showDefault = true;;
       break;
     }
+  }
+
+  public changeValueAds(id: string): void{
+    debugger;
+    //this.selectedItem = this._lstAds.find(x => x.id == 'ads-Pro');
+
+    //jQuery(this.el.nativeElement).find('#ddlADS').select(this.selectedItem).change();
+    //jQuery(this.el.nativeElement).find('#ddlADS option[value="ads-Pro"]').attr('selected', 'selected');
+    
+    //console.log(jQuery(this.el.nativeElement).find('#ddlADS').val());
+    //console.log(jQuery(this.el.nativeElement).find('#ddlADS').select();
+    //console.log(jQuery(this.el.nativeElement).find('#ddlADS').select2());
+    /*
+    jQuery(this.el.nativeElement).find('#ddlADS option').each(function(){
+      if($(this).val() == 'ads-Pro')
+        $(this).prop("selected", true);
+    })
+    */
+
   }
 }

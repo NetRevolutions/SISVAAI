@@ -11,9 +11,10 @@
         <div class="widget-body">
             <div class="mb-sm">
                 <label>Tipos de Anuncios: &nbsp;</label>                
-                <select class="selectpicker" id="ddlADS" data-style="btn-secondary" data-width="auto" #t data-width="auto" (change)="selectValue(t.value)">
-                    <option *ngFor="let ads of _lstAds" [value]="ads.id">{{ads.name}}</option>
-                </select>              
+                <select class="selectpicker" id="ddlADS" data-style="btn-secondary" data-width="auto" data-width="auto" [ngModel]="selectedItem | json" (ngModelChange)="updateSelectedValue($event)">
+                    <option *ngFor="let ads of _lstAds" [value]="ads | json">{{ads.name}}</option>
+                </select>
+                <label class="btn btn-success" (click)="changeValueAds('ads-Pro')">Change ADS - Pro</label>              
             </div>
             <div *ngIf="_showDefault" class="row">
                     <p>Construya su anuncio aqui</p>
