@@ -1,42 +1,77 @@
 <div class="tab-pane" role="tabpanel" id="simuladorTab" aria-labelledby="basic-tab" aria-expanded="true">
-    <h3>Simulador de Anuncios <br> Amarillas Internet</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium doloribus maiores 
+    <div class="row">        
+        <div class="col-md-12">            
+            <h3 class="text-center">Simulador de Anuncios <br> Amarillas Internet</h3>            
+        </div>        
+    </div>
+    <div class="row">  
+        <div class="col-md-12">
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>                     
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora praesentium doloribus maiores 
         omnis officia necessitatibus nostrum odit pariatur dicta minus accusamus harum quo facere, et 
         fugiat voluptas! Sint, veritatis, perferendis!
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore maiores aut non mollitia error 
         fugiat facilis facere quisquam, odit dicta cum soluta eveniet, cupiditate veritatis reiciendis 
-        repellendus temporibus autem reprehenderit.</p>    
-    <section class="widget">
-        <div class="widget-body">
-            <div class="mb-sm">
-                <label>Tipos de Anuncios: &nbsp;</label>                
-                <select class="selectpicker" id="ddlADS" data-style="btn-secondary" data-width="auto" data-width="auto" [ngModel]="selectedItem | json" (ngModelChange)="updateSelectedValue($event)">
-                    <option *ngFor="let ads of _lstAds" [value]="ads | json">{{ads.name}}</option>
-                </select>
-                <label class="btn btn-success" (click)="changeValueAds('ads-Pro')">Change ADS - Pro</label>              
-            </div>
-            <div *ngIf="_showDefault" class="row">
-                    <p>Construya su anuncio aqui</p>
-            </div>
-            <div *ngIf="_showProAdPack" class="row">
-                <ads-pro></ads-pro>
-            </div>
-            <div *ngIf="_showUltraYellowAdPack" class="row">
-                <ads-ultra></ads-ultra>
-            </div>
-            <div *ngIf="_showSuperYellowAdPack" class="row">
-                <ads-super></ads-super>
-            </div>
-            <div *ngIf="_showAdvance" class="row">
-                <ads-advanced></ads-advanced>
-            </div> 
-            <div *ngIf="_showStandard" class="row">
-                <ads-standard></ads-standard>
-            </div>
-            <div *ngIf="_showStarter" class="row">
-                <ads-starter></ads-starter>
-            </div>                          
+        repellendus temporibus autem reprehenderit.</p>
         </div>
-    </section>       
+    </div>   
+    <fieldset>
+        <legend>Simulador</legend>    
+    <div class="row">        
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <section class="widget">
+                <div class="widget-body">
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group row">                            
+                            <label class="col-md-4 col-form-label">Tipos de Anuncios: &nbsp;</label>                                                                                                     
+                            <div class="col-md-8">
+                                <select class="form-control" id="ddlADS" #t (change)="updateSelectedValue(t.value)">
+                                    <option *ngFor="let ads of _lstAds" value="{{ads.id}}">{{ads.name}}</option>
+                                </select>
+                                <div class="btn btn-success" (click)="changeValueAds('ads-Pro')">Change ADS - Pro</div>                                                              
+                            </div>                                                
+                        </div>                 
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <section class="widget">
+                <div class="widget-body">            
+                    <div *ngIf="_showDefault" class="row">
+                            <p>Construya su anuncio aqui</p>
+                    </div>
+                    <div *ngIf="_showProAdPack" class="row">
+                        <ads-pro></ads-pro>
+                    </div>
+                    <div *ngIf="_showUltraYellowAdPack" class="row">
+                        <ads-ultra></ads-ultra>
+                    </div>
+                    <div *ngIf="_showSuperYellowAdPack" class="row">
+                        <ads-super></ads-super>
+                    </div>
+                    <div *ngIf="_showAdvance" class="row">
+                        <ads-advanced></ads-advanced>
+                    </div> 
+                    <div *ngIf="_showStandard" class="row">
+                        <ads-standard></ads-standard>
+                    </div>
+                    <div *ngIf="_showStarter" class="row">
+                        <ads-starter></ads-starter>
+                    </div>                          
+                </div>
+            </section> 
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    </fieldset>          
 </div>

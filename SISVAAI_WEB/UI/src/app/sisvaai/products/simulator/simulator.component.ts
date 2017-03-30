@@ -46,9 +46,17 @@ export class SimulatorComponent {
   }
 
   ngOnInit() {
+    let that = this;
+    let $el = jQuery(this.el.nativeElement);
+    let defaultValue : string = 'default';
     //TODO: Call of Service  
     this.clearAdsOptions();
-    this.changeAds('default');
+    this.changeAds(defaultValue);
+
+    $el.find('#ddlADS').select().on("select", function(e){
+      debugger;
+      that.selectedItem.id = jQuery(that).val();
+    });
   }
 
   public clearAdsOptions(){
@@ -61,9 +69,9 @@ export class SimulatorComponent {
     this._showStarter = false; 
   }
 
-  public updateSelectedValue(event:string): void {
+  public updateSelectedValue(id:string): void {
     debugger;
-    this.selectedItem = JSON.parse(event); 
+    this.selectedItem = this._lstAds.find(x => x.id == id);//JSON.parse(event); 
     this.changeAds(this.selectedItem.id);
   }
 
@@ -98,7 +106,15 @@ export class SimulatorComponent {
   }
 
   public changeValueAds(id: string): void{
-    debugger;
+    //debugger;
+    //id = 'ads-Pro'; //Replace by service
+    let currentSelectedItem = this._lstAds.find(x => x.id == 'ads-Pro');
+    let currentValue = jQuery('#ddlADS').val();
+
+    jQuery('#ddlADS').val(currentSelectedItem.id);
+    this.updateSelectedValue(currentSelectedItem.id);
+
+
     //this.selectedItem = this._lstAds.find(x => x.id == 'ads-Pro');
 
     //jQuery(this.el.nativeElement).find('#ddlADS').select(this.selectedItem).change();
